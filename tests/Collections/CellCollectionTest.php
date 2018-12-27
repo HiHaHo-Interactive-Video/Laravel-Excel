@@ -5,8 +5,9 @@ use Maatwebsite\Excel\Collections\CellCollection;
 class CellCollectionTest extends TestCase {
 
 
-    public function __construct()
+    public function setUp()
     {
+        parent::setUp();
         $this->collection = new CellCollection([
             'one' => 'one',
             'two' => 'two'

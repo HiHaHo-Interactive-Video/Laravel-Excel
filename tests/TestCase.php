@@ -5,9 +5,16 @@ use Orchestra\Testbench\TestCase as TestBenchTestCase;
 class TestCase extends TestBenchTestCase
 {
 
+    public function setUp()
+    {
+        if (! $this->app) {
+            $this->refreshApplication();
+        }
+    }
+
     public function testExcelClass()
     {
-        $excel = App::make('Maatwebsite\Excel\Excel');
+        $excel = $this->app->make('Maatwebsite\Excel\Excel');
         $this->assertInstanceOf('Maatwebsite\Excel\Excel', $excel);
     }
 
